@@ -1,0 +1,39 @@
+{% extends 'users/login_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<br>
+<br>
+<br>
+<div class="container d-flex justify-content-center p-2">
+   
+  <div>
+    <h2 class="fw-bold mb-2 text-uppercase ">Event  Login</h2> <p class="muted"> login here to view events if you alreay registered either as an attendee ot organiser</p>
+    <div class="form-outline mb-4"></div>
+    <form method="POST" accept-charset="utf-8" class="pb-4">
+        {% csrf_token %}
+        {{form.username|as_crispy_field}}
+        {{form.password|as_crispy_field}}
+        <input type="Submit" name="submit" value="Login" class="btn btn-primary btn-block mb-3">
+    </form>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto rounded
+        ">
+        <p class="muted"> <a href="#" class="text-primary fw-bold"> forgot password</a> </p>
+       
+     </div>
+    <div class="col-md-6 mx-auto rounded
+    ">
+     <p class="muted">Don't have an account sign up <a href="#" class="text-primary fw-bold"> Signup</a> </p>
+ </div>
+    </div>
+  </div>
+
+  
+  
+   
+</div>
+
+{% endblock %}

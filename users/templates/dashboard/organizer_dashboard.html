@@ -1,0 +1,55 @@
+{% extends 'dashboard/dash_base.html' %}
+{% load static %}
+<!doctype html>
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+   <!-- event_area_start -->
+   <div class="event_area">
+    <h1 class="vr_text d-none d-lg-block">Event Schedule</h1>
+    <div class="container">
+        <div class="double_line">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <div class="date">
+                      <h3>{{event.date}}</h3>
+                    </div>
+                </div>
+                   <!----statement start-->
+            {% if events %}
+        
+                <div class="col-md-9 col-lg-9">
+                    {% for event in events %}
+                    <div class="single_speaker">
+                        <img src="{{event.cover.url}}" alt="" width="100" height="100" class="rounded-circle">
+                        <div class="speaker-name">
+                            <div class="heading d-flex justify-content-between align-items-center">
+                                <span><a href="">{{ event.title }}</a></span>
+                                <div class="time">
+                                  {{event.location}}
+                                </div>
+                            </div>
+                            <p>{{event.description | truncatewords:20 }} </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>    
+            {% else %}
+            <p>No events created yet.</p>
+            {% endif %}
+  
+       <!----statement end-->
+                    
+                
+            </div>
+        </div>
+    
+    </div>
+</div>
+<!-- event_area_end -->
+
+
+  {% endblock content %}

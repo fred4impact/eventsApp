@@ -1,0 +1,32 @@
+
+{% extends 'users/login_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+<br>
+<br>
+<br>
+<div class="container d-flex justify-content-center p-2">
+    <div>
+        <h2 class="fw-bold mb-2 text-uppercase ">Signup as an attendee</h2> <p class="muted">As a new attendee create an account here </p>
+        <div class="form-outline mb-4"></div>
+        <form method="POST" action="" class="pb-4">
+            {% csrf_token %}
+            {{form.username|as_crispy_field}}
+            {{form.password1|as_crispy_field}}
+            {{form.password2|as_crispy_field}}
+            {{form.email|as_crispy_field}}
+            {{form.first_name|as_crispy_field}}
+           
+            <input type="Submit" name="submit" value="Create Attendee Account" class="btn btn-primary btn-block mb-3 mt-4">
+        </form>  
+    </div>
+
+
+</div>
+  
+
+{% endblock %}
+
