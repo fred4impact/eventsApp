@@ -46,8 +46,7 @@ class Event(models.Model):
     organizer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
 
     # # Define many-to-many relationship with User model
-    attendees = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Registration', related_name = 'registered_event', null=True)
-
+    
     def get_absolute_url(self):
         return reverse('event.single', args=[self.slug])
 
